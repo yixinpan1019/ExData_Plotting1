@@ -1,5 +1,5 @@
 #Load all data...
-data <- read.csv("epc.csv", header = T, colClasses = cols, sep = ",")
+data <- read.csv("household_power_consumption.txt", header = T, colClasses = cols, sep = ",")
 
 # Retain only the dates required
 data1 <- data [data$Date %in% c("1/2/2007","2/2/2007") ,]
