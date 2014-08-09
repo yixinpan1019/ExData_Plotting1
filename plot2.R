@@ -1,0 +1,15 @@
+# Load the data
+data <- read.table("household_power_consumption.txt", sep=";", header=TRUE, stringsAsFactors =FALSE)
+data1 <- data[data$Date %in% c("1/2/2007","2/2/2007") ,]
+
+# Convert the Date and Time variables to Date/Time classes
+data2 <- as.character(as.Date(data1$Date, "%d/%m/%Y"))
+data2a <- paste(data2, subset$Time)
+data2b <- strptime(data2a, "%Y-%m-%d %H:%M:%S")
+
+# Prepare axis
+plot(data2b, as.numeric(subset$Global_active_power), type="l",
+     ylab="Global Active Power (kilowatts)", xlab="")
+
+# close the device (file)
+dev.off()
